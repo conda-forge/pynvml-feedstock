@@ -1,5 +1,5 @@
 {% set name = "pynvml" %}
-{% set version = "11.5.0" %}
+{% set version = "11.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/gpuopenanalytics/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: d3c99e8250f489ee9e94921a2d4777ea8778797ff3dcd4818429d839771c8213
+  sha256: a84f4bb7c5da1fc396ac3ebf493fa470a2cf208924b4bd9c6321d65d4906df9e
 
 build:
   noarch: python
