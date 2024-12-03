@@ -1,27 +1,34 @@
 {% set name = "pynvml" %}
 {% set version = "11.5.3" %}
+{% set python_min = "3.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/gpuopenanalytics/{{ name }}/archive/{{ version }}.tar.gz
-  sha256: a84f4bb7c5da1fc396ac3ebf493fa470a2cf208924b4bd9c6321d65d4906df9e
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 183d223ae487e5f00402d8da06c68c978ef8a9295793ee75559839c6ade7b229
 
 build:
+  number: 1
   noarch: python
-  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.5
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - pip
+    - python {{ python_min }}
+  commands:
+    - pip check
   imports:
     - pynvml
 
