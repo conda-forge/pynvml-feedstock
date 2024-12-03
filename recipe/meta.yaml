@@ -1,5 +1,5 @@
 {% set name = "pynvml" %}
-{% set version = "11.5.3" %}
+{% set version = "12.0.0" %}
 {% set python_min = "3.6" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 183d223ae487e5f00402d8da06c68c978ef8a9295793ee75559839c6ade7b229
+  sha256: 299ce2451a6a17e6822d6faee750103e25b415f06f59abb8db65d30f794166f5
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -21,6 +21,7 @@ requirements:
     - pip
     - setuptools
   run:
+    - nvidia-ml-py >=12.0.0,<13.0.0a0
     - python >={{ python_min }}
 
 test:
