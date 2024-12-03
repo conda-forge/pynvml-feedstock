@@ -1,5 +1,6 @@
 {% set name = "pynvml" %}
 {% set version = "11.5.3" %}
+{% set python_min = "3.6" %}
 
 package:
   name: {{ name|lower }}
@@ -16,15 +17,16 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.5
+    - python >={{ python_min }}
 
 test:
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
   imports:
