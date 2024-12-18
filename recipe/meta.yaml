@@ -21,13 +21,13 @@ requirements:
     - pip
     - setuptools
   run:
-    - nvidia-ml-py ~={{ major_version }}.0
     - python >={{ python_min }}
+    - nvidia-ml-py ~={{ major_version }}.0
 
 test:
   requires:
-    - pip
     - python {{ python_min }}
+    - pip
   commands:
     - pip check
   imports:
