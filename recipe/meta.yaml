@@ -1,5 +1,6 @@
 {% set name = "pynvml" %}
 {% set version = "12.0.0" %}
+{% set major_version = version.split(".")[0]|int %}
 
 package:
   name: {{ name|lower }}
@@ -20,7 +21,7 @@ requirements:
     - pip
     - setuptools
   run:
-    - nvidia-ml-py >=12.0.0,<13.0.0a0
+    - nvidia-ml-py ~={{ major_version }}.0
     - python >={{ python_min }}
 
 test:
