@@ -1,5 +1,5 @@
 {% set name = "pynvml" %}
-{% set version = "12.0.0" %}
+{% set version = "13.0.1" %}
 {% set major_version = version.split(".")[0]|int %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 299ce2451a6a17e6822d6faee750103e25b415f06f59abb8db65d30f794166f5
+  sha256: 1245991d9db786b4d2f277ce66869bd58f38ac654e38c9397d18f243c8f6e48f
 
 build:
   number: 0
@@ -22,7 +22,7 @@ requirements:
     - setuptools
   run:
     - python >={{ python_min }}
-    - nvidia-ml-py ~={{ major_version }}.0
+    - nvidia-ml-py >=12.0.0
 
 test:
   requires:
